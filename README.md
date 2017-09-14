@@ -1,5 +1,5 @@
 # FourClassificationModel
-## Install it with pip
+## Install PaddlePaddle with pip
 ```
 pip install paddlepaddle
 ```
