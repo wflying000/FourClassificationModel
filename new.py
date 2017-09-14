@@ -6,13 +6,13 @@ import paddle.v2 as paddle
 from PIL import Image
 import numpy as np
 import cv2
-from vgg import vgg_bn_drop
+#from vgg import vgg_bn_drop
 
 
 def multilayer_perceptron(img):
 	hidden1 = paddle.layer.fc(input=img, size=128, act=paddle.activation.Relu())
 	hidden2 = paddle.layer.fc(input=hidden1, size=64, act=paddle.activation.Relu())
-	predict = paddle.layer.fc(input=hidden2, size=5, act=paddle.activation.Softmax())
+	predict = paddle.layer.fc(input=hidden2, size=4, act=paddle.activation.Softmax())
 	return predict
 
 camera_port = 0
@@ -35,7 +35,7 @@ for i in range(ramp_frames):
     temp = get_image()
 
 datadim = 3 * 320 * 240
-classdim = 5
+classdim = 4
 
 # PaddlePaddle init
 paddle.init(use_gpu=False, trainer_count=1)
